@@ -1,0 +1,101 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                                           Mon Oct 21 17:33:04 2019
+
+
+     1                           	processor	18F4520
+     2                           	opt	pw 132
+     3                           	opt	flic
+     4                           	psect	mytext,local,reloc=2,class=CODE,delta=1
+     5  0000                     stk_offset	set	0
+     6  0000                     auto_size	set	0
+     7                           
+     8                           ; stack_auto defines a symbol /name/_offset which equates to the
+     9                           ; stack offset of the auto object in question
+    10  0000                     
+    11                           ; stack_param defines a symbol /name/_offset which equates to the
+    12                           ; stack offset of the parameter object in question
+    13  0000                     
+    14                           ; alloc_stack adjusts the SP to allocate space for auto objects
+    15                           ; it also links in to the btemp symbol so that can be used
+    16  0000                     
+    17                           ; restore_stack adjusts the SP to remove all auto and parameter
+    18                           ; objects from the stack prior to returning from a function
+    19  0000                     
+    20                           	psect	mytext
+    21  007FC6                     _divide:
+    22                           	opt callstack 0
+    23  007FC6  6A93               	clrf	3987,c
+    24  007FC8  0E08               	movlw	8
+    25  007FCA  6E89               	movwf	3977,c	;count
+    26  007FCC  C001 FF92          	movff	1,3986	;
+    27  007FD0  C003 FFE8          	movff	3,wreg
+    28  007FD4  3692               	rlcf	3986,f,c
+    29  007FD6  3693               	rlcf	3987,f,c
+    30  007FD8  6AD8               	clrf	status,c
+    31  007FDA                     loop:
+    32  007FDA  5E93               	subwf	3987,f,c
+    33  007FDC  B8D8               	btfsc	status,4,c
+    34  007FDE  D004               	goto	neg
+    35  007FE0  3692               	rlcf	3986,f,c
+    36  007FE2  3693               	rlcf	3987,f,c
+    37  007FE4  8092               	bsf	3986,0,c
+    38  007FE6  D004               	goto	L1
+    39  007FE8                     neg:
+    40  007FE8  2693               	addwf	3987,f,c
+    41  007FEA  3692               	rlcf	3986,f,c
+    42  007FEC  3693               	rlcf	3987,f,c
+    43  007FEE  9092               	bcf	3986,0,c
+    44  007FF0                     L1:
+    45  007FF0  2E89               	decfsz	3977,f,c
+    46  007FF2  D7F3               	goto	loop
+    47  007FF4  4293               	rrncf	3987,f,c
+    48  007FF6  CF92 F002          	movff	3986,2
+    49  007FFA  CF93 F001          	movff	3987,1
+    50  007FFE  0012               	return	
+    51                           tosu	equ	0xFFF
+    52                           tosh	equ	0xFFE
+    53                           tosl	equ	0xFFD
+    54                           stkptr	equ	0xFFC
+    55                           pclatu	equ	0xFFB
+    56                           pclath	equ	0xFFA
+    57                           pcl	equ	0xFF9
+    58                           tblptru	equ	0xFF8
+    59                           tblptrh	equ	0xFF7
+    60                           tblptrl	equ	0xFF6
+    61                           tablat	equ	0xFF5
+    62                           prodh	equ	0xFF4
+    63                           prodl	equ	0xFF3
+    64                           indf0	equ	0xFEF
+    65                           postinc0	equ	0xFEE
+    66                           postdec0	equ	0xFED
+    67                           preinc0	equ	0xFEC
+    68                           plusw0	equ	0xFEB
+    69                           fsr0h	equ	0xFEA
+    70                           fsr0l	equ	0xFE9
+    71                           wreg	equ	0xFE8
+    72                           indf1	equ	0xFE7
+    73                           postinc1	equ	0xFE6
+    74                           postdec1	equ	0xFE5
+    75                           preinc1	equ	0xFE4
+    76                           plusw1	equ	0xFE3
+    77                           fsr1h	equ	0xFE2
+    78                           fsr1l	equ	0xFE1
+    79                           bsr	equ	0xFE0
+    80                           indf2	equ	0xFDF
+    81                           postinc2	equ	0xFDE
+    82                           postdec2	equ	0xFDD
+    83                           preinc2	equ	0xFDC
+    84                           plusw2	equ	0xFDB
+    85                           fsr2h	equ	0xFDA
+    86                           fsr2l	equ	0xFD9
+    87                           status	equ	0xFD8
+
+
+Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                               Mon Oct 21 17:33:04 2019
+
+                         neg 7FE8                          LATA 000F89                          WREG 000FE8  
+                        loop 7FDA                         TRISA 000F92                         TRISB 000F93  
+                      STATUS 000FD8                       _divide 7FC6  

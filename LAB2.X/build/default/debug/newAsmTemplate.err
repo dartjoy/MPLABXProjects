@@ -1,0 +1,4 @@
+Warning[205] C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 1 : Found directive in column 1. (LIST)
+Warning[205] C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 11 : Found directive in column 1. (endm)
+Warning[205] C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 19 : Found directive in column 1. (endm)
+Warning[205] C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 53 : Found directive in column 1. (end)

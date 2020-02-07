@@ -1,0 +1,6 @@
+Warning[205] C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 1 : Found directive in column 1. (LIST)
+Warning[205] C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 11 : Found directive in column 1. (endm)
+Warning[205] C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 18 : Found directive in column 1. (endm)
+Warning[206] C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 36 : Found call to macro in column 1. (add)
+Error[108]   C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 15 : Illegal character (:)
+Warning[205] C:\USERS\CARLTON\MPLABXPROJECTS\T.X\NEWASMTEMPLATE.ASM 51 : Found directive in column 1. (end)
